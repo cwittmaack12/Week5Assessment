@@ -28,6 +28,7 @@ module.exports = {
     /////the country_id.  
     /////maybe i'm overthinking this and just have some code wrong?
 
+
     
     createCity: (req, res) => { 
         const{
@@ -44,9 +45,9 @@ module.exports = {
 
     getCities: (req,res) => {
         sequelize.query(`
-        SELECT city.city_id, city.name, city.rating, country.country_id, country.name
-        FROM countries AS country
-        JOIN cities AS city on country.country_id = city.country_id
+        SELECT cities.city_id, cities.name AS city, cities.rating, countries.country_id, countries.name AS country
+        FROM countries
+        JOIN cities on countries.country_id = cities.country_id
         ORDER BY rating DESC
         `)
         .then(dbRes => {res.status(200).send(dbRes[0])
