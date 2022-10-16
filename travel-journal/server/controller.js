@@ -33,11 +33,11 @@ module.exports = {
     createCity: (req, res) => { 
         const{
             name,
-            country_id,
+            countryId,
             rating} = req.body
         sequelize.query(`
         INSERT INTO cities (name, country_id, rating)
-        VALUES ('${name}', '${country_id}', '${rating}')
+        VALUES ('${name}', '${countryId}', '${rating}')
         `)
         .then(dbRes => {res.status(200).send(dbRes[0])})
         .catch(err => console.log(err))

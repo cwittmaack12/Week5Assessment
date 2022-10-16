@@ -6,6 +6,7 @@ const countryList = document.querySelector('#country-list')
 function handleSubmit(e) {
     e.preventDefault()
 
+
     if (nameInput.value < 1) {
         alert ('You must enter a city name')
         return
